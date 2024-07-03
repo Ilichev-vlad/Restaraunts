@@ -5,10 +5,10 @@ import { Restaurant } from "../restaurant/component";
 import { TabBar } from "../tabBar/component";
 
 export const App = () => {
-    const [currentRestData, setData] = useState(restaurants ? restaurants [0] : {});
+    const [currentRestData, setCurrentRestData] = useState(restaurants.length ? restaurants[0] : {});
 
     const setCurrentRest = (currentRestData) => {
-        setData(currentRestData);
+        setCurrentRestData(currentRestData);
     }
     
     return (

@@ -4,7 +4,7 @@ const useCount = () => {
     const [count, setCount] = useState(0);
   
     const increment = () => {
-      setCount((prevState) => prevState + 1);
+      setCount((prevState) => prevState < 5 ? prevState + 1 : prevState);
     };
     const decrement = () => {
       setCount((prevState) => prevState > 0 ? prevState - 1 : 0);
