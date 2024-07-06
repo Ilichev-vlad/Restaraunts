@@ -1,4 +1,6 @@
-export const Reviews = ({reviews}) => {
+import { ReviewForm } from "../review-form/component";
+
+export const Reviews = ({id, reviews}) => {
 
     if (!reviews?.length) {
         return null;
@@ -14,6 +16,7 @@ export const Reviews = ({reviews}) => {
                     : 'Review is empty'
                 }
             </div>
+            <ReviewForm id={id}/>
         </div>
     );
 }

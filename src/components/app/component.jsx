@@ -17,6 +17,21 @@ export const App = () => {
                 <TabBar restaurants={restaurants} setCurrentRest={setCurrentRest} />
                 <Restaurant 
                     key={currentRestData.id}
+                    id={currentRestData.id}
+                    name={currentRestData.name} 
+                    menu={currentRestData.menu} 
+                    reviews={currentRestData.reviews}
+                />
+                <Restaurant 
+                    key={currentRestData.id}
+                    id={currentRestData.id}
+                    name={currentRestData.name} 
+                    menu={currentRestData.menu} 
+                    reviews={currentRestData.reviews}
+                />
+                <Restaurant 
+                    key={currentRestData.id}
+                    id={currentRestData.id}
                     name={currentRestData.name} 
                     menu={currentRestData.menu} 
                     reviews={currentRestData.reviews}

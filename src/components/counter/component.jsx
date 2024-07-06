@@ -1,13 +1,23 @@
 import { useCallback, useState } from "react";
 
-const useCount = () => {
+const useCount = (minValue, maxValue, onChange) => {
+    const min = minValue ? minValue : 0;
+    const max = maxValue ? maxValue : 5;
     const [count, setCount] = useState(0);
   
     const increment = useCallback(() => {
-      setCount((prevState) => prevState < 5 ? prevState + 1 : prevState);
+      setCount((prevState) => {
+        const currentValue = prevState < max ? prevState + 1 : prevState;
+        if (onChange) onChange(currentValue);
+        return currentValue;
+    });
     }, []);
     const decrement = useCallback(() => {
-      setCount((prevState) => prevState > 0 ? prevState - 1 : 0);
+      setCount((prevState) => {
+        const currentValue = prevState > min ? prevState - 1 : min;
+        if (onChange) onChange(currentValue);
+        return currentValue;
+    });
     }, []);
   
     return {
@@ -17,8 +27,8 @@ const useCount = () => {
     };
 };
 
-export const Counter = () => {
-    const { count, decrement, increment } = useCount();
+export const Counter = ({minValue, maxValue, onChange}) => {
+    const { count, decrement, increment } = useCount(minValue, maxValue, onChange);
     return (
         <div style={{display: "flex", flexDirection: "row", width: '15rem', justifyContent: "space-around", alignItems: "center"}}>
             <h4>Кол-во: </h4>

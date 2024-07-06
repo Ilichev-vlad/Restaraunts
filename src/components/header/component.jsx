@@ -1,3 +1,6 @@
+import { ScrollProgress } from "../scroll-progress/component";
 export const Header = () => {
-    return <header>App Header</header>;
+    return (<header>
+        <ScrollProgress />
+    </header>);
 };
