@@ -1,7 +1,10 @@
-import { useState } from "react";
 import { Counter } from "../counter/component";
 
 export const Menu = ({menu}) => {
+
+    if (!menu?.length) {
+        return null;
+    }
 
     const menuItems = menu.map(({name, price}) => {
         return (

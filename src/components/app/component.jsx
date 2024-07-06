@@ -16,6 +16,7 @@ export const App = () => {
             <Layout>
                 <TabBar restaurants={restaurants} setCurrentRest={setCurrentRest} />
                 <Restaurant 
+                    key={currentRestData.id}
                     name={currentRestData.name} 
                     menu={currentRestData.menu} 
                     reviews={currentRestData.reviews}
