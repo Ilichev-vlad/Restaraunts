@@ -1,33 +1,8 @@
-import { useReducer } from "react";
 import { Counter } from "../counter/component";
+import { useForm } from "./hooks";
 
-const INITIAL_FORM = {
-    name: '',
-    text: '',
-    rating: 0
-};
-
-function reducer(state, { type, payload }) {
-    switch (type) {
-      case "setName":
-        return { ...INITIAL_FORM, name: payload };
-      case "setText":
-        return { ...state, text: payload };
-      case "setRating":
-        return { ...state, rating: payload };
-      case "clear":
-        return INITIAL_FORM;
-      default:
-        return state;
-    }
-}
-
-const useForm = (initialValue) => {
-    return useReducer(reducer, initialValue);
-};
-
-export const ReviewForm = ({id}) => {
-    const [form, dispatch] = useForm(INITIAL_FORM);
+export const ReviewForm = () => {
+    const [form, dispatch] = useForm();
     const { name, text, rating } = form;
 
     return (
@@ -49,10 +24,11 @@ export const ReviewForm = ({id}) => {
                 />
             </div>
             <div>
-                <span>Рейтинг: {rating}</span>
-                <Counter key={id} minValue={1} maxValue={5} onChange={(value) => {
-                    dispatch({ type: "setRating", payload: value });
-                }}/>
+                <span>Рейтинг</span>
+                <Counter value={rating} 
+                    increment={() => dispatch({ type: "incrementRating" })}
+                    decrement={() => dispatch({ type: "decrementRating" })}
+                />
             </div>
             <div>
                 <button onClick={() => dispatch({ type: "clear" })}>Сохранить</button>

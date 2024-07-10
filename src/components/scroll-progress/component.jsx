@@ -1,21 +1,33 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-export const ScrollProgress = () => {
-    const [percentage, setPercentage] = useState(0);
+const calculateScrollProgress = ({scrollHeight, innerHeight, scrollY}) => {
+    return scrollY / (scrollHeight - innerHeight) * 100;
+};
+
+const useProgressBar = () => {
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            const y = typeof window.scrollY === 'undefined'
-                ? window.pageYOffset
-                : window.scrollY;
-            
-            const progress = y === 0
-                ? 0
-                : y / (document.body.scrollHeight - window.innerHeight);
+        const handler = () => {
+            const value = calculateScrollProgress({
+                scrollHeight: document.documentElement.scrollHeight,
+                innerHeight: window.innerHeight,
+                scrollY: window.scrollY
+            });
 
-            setPercentage(progress * 100);
-        });
-    }, []);
+            setProgress(value);
+        }
+
+        window.addEventListener('scroll', handler);
+
+        return () => window.removeEventListener('scroll', handler);
+    });
+
+    return progress;
+};
+
+export const ScrollProgress = () => {
+    const percentage = useProgressBar();
 
     return (
         <div style={{
@@ -24,7 +36,7 @@ export const ScrollProgress = () => {
             left: '0', 
             top: '0', 
             backgroundColor: 'red', 
-            width: percentage + '%'
+            width: `${percentage}%`
         }}></div>
     )
 };
