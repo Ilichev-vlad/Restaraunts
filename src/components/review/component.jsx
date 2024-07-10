@@ -1,3 +1,5 @@
+import { ReviewForm } from "../review-form/component";
+
 export const Reviews = ({reviews}) => {
 
     if (!reviews?.length) {
@@ -14,6 +16,7 @@ export const Reviews = ({reviews}) => {
                     : 'Review is empty'
                 }
             </div>
+            <ReviewForm/>
         </div>
     );
 }

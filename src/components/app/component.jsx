@@ -21,6 +21,18 @@ export const App = () => {
                     menu={currentRestData.menu} 
                     reviews={currentRestData.reviews}
                 />
+                {/* <Restaurant 
+                    key={currentRestData.id}
+                    name={currentRestData.name} 
+                    menu={currentRestData.menu} 
+                    reviews={currentRestData.reviews}
+                />
+                <Restaurant 
+                    key={currentRestData.id}
+                    name={currentRestData.name} 
+                    menu={currentRestData.menu} 
+                    reviews={currentRestData.reviews}
+                /> */}
             </Layout>
         </div>
     );
