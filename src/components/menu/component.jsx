@@ -1,4 +1,6 @@
 import { CounterContainer } from "../counter/container";
+import styles from './styles.module.css';
+import classNames from "classnames";
 
 export const Menu = ({menu}) => {
 
@@ -19,8 +21,10 @@ export const Menu = ({menu}) => {
 
     return (
         <div>
-            <h3>MENU</h3>
-            <div>{ menuItems?.length ? (<ul>{menuItems}</ul>) : 'Menu is empty' }</div>
+            <details className={classNames(styles.sectionWrapper)} open>
+                <summary className={classNames(styles.sectionTitle)}>MENU</summary>
+                { menuItems?.length ? (<ul>{menuItems}</ul>) : 'Menu is empty' }
+            </details>
         </div>
     );
 }
