@@ -1,3 +1,6 @@
+import styles from './styles.module.css';
+import classNames from 'classnames';
+
 export const TabBar = ({restaurants, setCurrentRest}) => {
 
     if (!restaurants?.length) {
@@ -6,9 +9,17 @@ export const TabBar = ({restaurants, setCurrentRest}) => {
 
     const getTabBarItems = () => restaurants.map((restaurant) => {
         return (
-            <button onClick={() => setCurrentRest(restaurant)}>{restaurant.name}</button>
+            <button 
+                className={classNames(styles.tabBarItems)} 
+                onClick={() => setCurrentRest(restaurant)}>{restaurant.name}
+                
+            </button>
         )
     });
 
-    return (<div>{getTabBarItems()}</div>);
+    return (
+        <div className={classNames(styles.tabBar, styles.sticky)}>
+            {getTabBarItems()}
+        </div>
+    );
 }

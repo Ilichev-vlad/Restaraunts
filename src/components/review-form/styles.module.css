@@ -1,0 +1,16 @@
+.sectionTitle {
+    font-weight: bold;
+}
+
+.sectionWrapper {
+    margin-top: 1rem;
+    border: solid 1px;
+    padding: 1rem;
+}
+
+.flexibleAttributes {
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    align-items: center;
+}

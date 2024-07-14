@@ -1,30 +1,34 @@
 import { Counter } from "../counter/component";
 import { useForm } from "./hooks";
 
+import styles from './styles.module.css';
+import classNames from "classnames";
+
 export const ReviewForm = () => {
     const [form, dispatch] = useForm();
     const { name, text, rating } = form;
 
     return (
-        <div>
-            <div>
-                <span>Имя</span>
+        <details className={classNames(styles.sectionWrapper)} open>
+            <summary className={classNames(styles.sectionTitle)}>REVIEW FORM</summary>
+            <div className={classNames(styles.flexibleAttributes)}>
+                <span>NAME: </span>
                 <input value={name} 
                     onChange={(event) => {
                         dispatch({ type: "setName", payload: event.target.value });
                     }}
                 />
             </div>
-            <div>
-                <span>Текст</span>
+            <div className={classNames(styles.flexibleAttributes)}>
+                <span>TEXT: </span>
                 <input value={text} 
                     onChange={(event) => {
                         dispatch({ type: "setText", payload: event.target.value });
                     }}
                 />
             </div>
-            <div>
-                <span>Рейтинг</span>
+            <div className={classNames(styles.flexibleAttributes)}>
+                <span>RATING: </span>
                 <Counter value={rating} 
                     increment={() => dispatch({ type: "incrementRating" })}
                     decrement={() => dispatch({ type: "decrementRating" })}
@@ -33,6 +37,6 @@ export const ReviewForm = () => {
             <div>
                 <button onClick={() => dispatch({ type: "clear" })}>Сохранить</button>
             </div>
-        </div>
+        </details>
     );
 }

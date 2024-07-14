@@ -4,6 +4,8 @@ import { Layout } from "../layout/component";
 import { Restaurant } from "../restaurant/component";
 import { TabBar } from "../tabBar/component";
 
+import './app.css';
+
 export const App = () => {
     const [currentRestData, setCurrentRestData] = useState(restaurants.length ? restaurants[0] : {});
 
