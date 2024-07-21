@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { selectUserById } from "../../redux/entities/user"
+import { selectUserById } from "../../redux/entities/user/user"
 import { User } from "./component";
 
 export const UserContainer = ({userId}) => {
