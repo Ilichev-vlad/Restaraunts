@@ -1,10 +1,12 @@
+import { Button } from "../button/component";
+
 export const Counter = ({value, increment, decrement}) => {
     return (
         <div style={{display: "flex", flexDirection: "row", width: '15rem', justifyContent: "space-around", alignItems: "center"}}>
             <h4>Кол-во: </h4>
-            <button onClick={increment}>+</button>
+            <Button text='+' onClickHandler={increment} />
             {value}
-            <button onClick={decrement}>-</button>
+            <Button text='-' onClickHandler={decrement} />
         </div>
     );
 }

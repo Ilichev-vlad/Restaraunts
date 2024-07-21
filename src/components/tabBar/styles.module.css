@@ -1,16 +1,15 @@
 .tabBar {
-    margin: 1rem;
+    margin: 40px 2rem 1rem 2rem;
     display: flex;
-    justify-content: end;
 }
 
 .tabBarItems {
     padding: 1rem;
-    margin: .5rem;
+    margin-right: .5rem;
 }
 
 .sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 10px;
+    top: 60px;
 }
