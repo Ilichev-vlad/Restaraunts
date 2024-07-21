@@ -1,0 +1,9 @@
+.default {
+    background-color: gray;
+    color: black;
+}
+
+.custom {
+    background-color: red;
+    color: white;
+}

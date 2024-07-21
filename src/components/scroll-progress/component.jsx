@@ -36,6 +36,6 @@ export const ScrollProgress = () => {
     return (
         <div 
             className={classNames(styles.progressBar)}
-            style={{width: `${percentage}%`}}></div>
+            style={{width: `calc(${percentage}% - 2rem)`}}></div>
     )
 };
