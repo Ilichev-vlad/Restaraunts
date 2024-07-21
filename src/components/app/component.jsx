@@ -1,35 +1,24 @@
-import { useState } from "react";
-import { restaurants } from "../../constants/mock";
 import { Layout } from "../layout/component";
-import { Restaurant } from "../restaurant/component";
-import { TabBar } from "../tabBar/component";
 import { ThemeContextProvider } from "../theme-context/component";
+import { Provider } from "react-redux";
+import { UserContextProvider } from "../user-context/component";
+import { store } from "../../redux";
 
 import './app.css';
-import { UserContextProvider } from "../user-context/component";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
 
 export const App = () => {
-    const [currentRestData, setCurrentRestData] = useState(restaurants.length ? restaurants[0] : {});
-
-    const setCurrentRest = (currentRestData) => {
-        setCurrentRestData(currentRestData);
-    }
-    
     return (
-        <UserContextProvider>
-            <ThemeContextProvider>
-                <div>
-                    <Layout>
-                        <TabBar restaurants={restaurants} setCurrentRest={setCurrentRest} />
-                        <Restaurant 
-                            key={currentRestData.id}
-                            name={currentRestData.name} 
-                            menu={currentRestData.menu} 
-                            reviews={currentRestData.reviews}
-                        />
-                    </Layout>
-                </div>
-            </ThemeContextProvider>
-        </UserContextProvider>
+        <Provider store={store}>
+            <UserContextProvider>
+                <ThemeContextProvider>
+                    <div>
+                        <Layout>
+                           <RestaurantTabsContainer />
+                        </Layout>
+                    </div>
+                </ThemeContextProvider>
+            </UserContextProvider>
+        </Provider>
     );
 }
