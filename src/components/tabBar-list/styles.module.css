@@ -3,11 +3,6 @@
     display: flex;
 }
 
-.tabBarItems {
-    padding: 1rem;
-    margin-right: .5rem;
-}
-
 .sticky {
     position: -webkit-sticky;
     position: sticky;
