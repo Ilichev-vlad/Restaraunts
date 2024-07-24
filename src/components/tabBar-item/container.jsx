@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/entities/restaurant";
+import { selectRestaurantById } from "../../redux/entities/restaurant/restaurant";
 import { TabBarItem } from "./component";
 
 export const TabBarItemContainer = ({restaurantId, setCurrentRest}) => {

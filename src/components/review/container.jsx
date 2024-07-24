@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Review } from "./component";
-import { selectReviewById } from "../../redux/entities/review";
+import { selectReviewById } from "../../redux/entities/review/review";
 
 export const ReviewContainer = ({id}) => {
     const review = useSelector((state) => selectReviewById(state, id));

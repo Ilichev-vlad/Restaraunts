@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/entities/restaurant";
+import { selectRestaurantById } from "../../redux/entities/restaurant/restaurant";
 import { Restaurant } from "./component";
 
 export const RestaurantContainer = ({id}) => {
@@ -9,5 +9,5 @@ export const RestaurantContainer = ({id}) => {
 
     const {name, menu, reviews} = restaurant;
 
-    return (<Restaurant name={name} menu={menu} reviews={reviews}></Restaurant>);
+    return (<Restaurant id={id} name={name} menu={menu} reviewIds={reviews}></Restaurant>);
 };
