@@ -9,5 +9,5 @@ export const RestaurantContainer = ({id}) => {
 
     const {name, menu, reviews} = restaurant;
 
-    return (<Restaurant id={id} name={name} menu={menu} reviews={reviews}></Restaurant>);
+    return (<Restaurant id={id} name={name} menu={menu} reviewIds={reviews}></Restaurant>);
 };

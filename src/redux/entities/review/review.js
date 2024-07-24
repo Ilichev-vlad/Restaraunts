@@ -20,7 +20,7 @@ export const ReviewSlice = createSlice({
     .addCase(getReviews.fulfilled, (state, { payload }) => {
         state.requestStatus = "fulfilled";
 
-        entityAdapter.setAll(state, payload);
+        entityAdapter.addMany(state, payload);
     })
     .addCase(getReviews.rejected, (state) => {
         state.requestStatus = "rejected";
